@@ -1,0 +1,41 @@
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\Old School Runescape Project.csproj.AssemblyReference.cache
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\Old School Runescape Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\Old School Runescape Project.AssemblyInfoInputs.cache
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\Old School Runescape Project.AssemblyInfo.cs
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\Old School Runescape Project.csproj.CoreCompileInputs.cache
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\Old School Runescape Project.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\Old School Runescape Project.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\BackEnd\appsettings.Development.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\BackEnd\appsettings.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\BackEnd\Properties\launchSettings.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\FrontEnd\.cta.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\FrontEnd\components.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\FrontEnd\package.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\FrontEnd\public\manifest.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\FrontEnd\tsconfig.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\Old School Runescape Project.staticwebassets.endpoints.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\Old School Runescape Project.exe
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\Old School Runescape Project.deps.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\Old School Runescape Project.runtimeconfig.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\Old School Runescape Project.dll
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\Old School Runescape Project.pdb
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\scopedcss\bundle\Old School Runescape Project.styles.css
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\Old Scho.57B1A8A3.Up2Date
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\Old School Runescape Project.dll
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\refint\Old School Runescape Project.dll
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\Old School Runescape Project.pdb
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\Old School Runescape Project.genruntimeconfig.cache
+C:\Users\starm\Desktop\Projects\Old School Runescape Project\obj\Debug\net8.0\ref\Old School Runescape Project.dll
