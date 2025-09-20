@@ -48,6 +48,10 @@ build-local: ## Build projects locally without Docker
 	@echo "Building frontend..."
 	cd FrontEnd && pnpm run build
 
+build-unique: ## Build with a unique tag to prevent image buildup
+	powershell -Command "$$timestamp = Get-Date -Format 'yyyyMMddHHmmss'; (Get-Content .env) -replace 'BUILD_TAG=.*', ('BUILD_TAG=' + $$timestamp) | Set-Content .env"
+	docker-compose build
+
 # Testing Commands
 test: ## Run all tests
 	@echo "Running backend tests..."
@@ -84,6 +88,7 @@ logs-frontend: ## View logs from frontend service
 clean: ## Clean up Docker containers, images, and build artifacts
 	docker-compose down -v
 	docker system prune -f
+	docker image prune -f
 	@echo "Cleaning backend build artifacts..."
 	dotnet clean "Old School Runescape Project.csproj"
 	@if exist "bin" rmdir /s /q bin

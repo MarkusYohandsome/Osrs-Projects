@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Old_School_Runescape_Project.Models;
 
 namespace Old_School_Runescape_Project.Controllers;
 
@@ -12,10 +14,12 @@ public class WeatherForecastController : ControllerBase
     };
 
     private readonly ILogger<WeatherForecastController> _logger;
+    private readonly ApplicationDbContext _context;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger, ApplicationDbContext context)
     {
         _logger = logger;
+        _context = context;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
@@ -28,6 +32,20 @@ public class WeatherForecastController : ControllerBase
             Summary = Summaries[Random.Shared.Next(Summaries.Length)]
         })
         .ToArray();
+    }
+
+    [HttpGet("users")]
+    public async Task<IActionResult> GetUsers()
+    {
+        try
+        {
+            var users = await _context.Users.ToListAsync();
+            return Ok(users);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Database error: {ex.Message}");
+        }
     }
 }
 
