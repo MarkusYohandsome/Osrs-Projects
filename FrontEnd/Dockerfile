@@ -1,19 +1,19 @@
 # Multi-stage build for React frontend using Vite
 
 # Build stage
-FROM node:18-alpine AS build
+FROM node:22 AS build
 WORKDIR /app
+
+# Copy package files first for better caching
+COPY package*.json pnpm-lock.yaml ./
 
 # Install pnpm
 RUN npm install -g pnpm
 
-# Copy package files first
-COPY package*.json pnpm-lock.yaml ./
-
-# Install all dependencies (including dev dependencies for build)
+# Install dependencies using pnpm
 RUN pnpm install --frozen-lockfile
 
-# Copy source code (excluding node_modules which is already installed)
+# Copy source code
 COPY . .
 
 # Build the application

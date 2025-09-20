@@ -1,0 +1,16 @@
+# Production overrides for docker-compose
+version: '3.8'
+
+services:
+  backend:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - SUPABASE_CONNECTION_STRING=${SUPABASE_CONNECTION_STRING}
+    volumes: [] # Remove development volumes
+
+  frontend:
+    volumes: [] # Remove development volumes
+    
+networks:
+  app-network:
+    driver: bridge

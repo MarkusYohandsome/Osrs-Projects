@@ -1,288 +1,212 @@
-# Old School Runescape Project
+# Old School RuneScape Project
 
-A full-stack monorepo project featuring an ASP.NET Core backend and React frontend for Old School Runescape related functionality. Fully containerized with Docker and optimized for development and production.
+A full-stack application with .NET 8 Web API backend and React TypeScript frontend, orchestrated with Docker and managed through a unified Makefile.
 
-## Project Structure
+## 🏗️ Architecture
 
 ```
-├── BackEnd/                          # ASP.NET Core Web API
-│   ├── Controllers/
-│   │   └── WeatherForecastController.cs  # Sample API controller
-│   ├── appsettings.json              # Application settings
-│   ├── appsettings.Development.json  # Development settings
-│   ├── Program.cs                    # Application entry point
-│   └── Properties/
-│       └── launchSettings.json
-├── FrontEnd/                         # React + TypeScript + Vite
-│   ├── src/                          # Source code
-│   ├── public/                       # Static assets
-│   ├── components.json               # shadcn/ui configuration
-│   ├── package.json                  # Frontend dependencies
-│   ├── pnpm-lock.yaml                # Lockfile for pnpm
-│   ├── tsconfig.json                 # TypeScript configuration
-│   ├── vite.config.ts                # Vite configuration
-│   ├── vitest.config.ts              # Vitest configuration
-│   ├── Dockerfile                    # Frontend containerization
-│   └── .dockerignore                 # Docker ignore rules
-├── docker-compose.yml                # Multi-service orchestration
-├── Dockerfile                        # Backend containerization
-├── .dockerignore                     # Docker ignore rules
-├── .editorconfig                     # Code formatting standards
-├── .gitignore                        # Git ignore rules
-├── Old School Runescape Project.csproj  # .NET project file
-├── Old School Runescape Project.sln     # Visual Studio solution
-└── README.md                         # This file
+osrs-projects/
+├── Makefile                 # Unified command interface
+├── docker-compose.yml       # Development orchestration
+├── docker-compose.prod.yml  # Production overrides
+├── BackEnd/                 # .NET 8 Web API
+│   ├── Dockerfile          # Backend container definition
+│   ├── Program.cs
+│   └── Controllers/
+└── FrontEnd/               # React + TypeScript + Vite
+    ├── Dockerfile          # Frontend container definition
+    ├── package.json
+    └── src/
 ```
 
-## Tech Stack
-
-### Backend
-- **Framework**: ASP.NET Core 8.0
-- **Language**: C#
-- **Runtime**: .NET 8.0
-- **API**: RESTful Web API with Controllers
-- **Documentation**: Swagger/OpenAPI
-- **Container**: Docker (Linux-based)
-- **Build Tool**: .NET SDK
-
-### Frontend
-- **Framework**: React 19
-- **Language**: TypeScript 5.7
-- **Build Tool**: Vite 6.3
-- **Styling**: Tailwind CSS 4.0
-- **Routing**: TanStack Router 1.130
-- **Package Manager**: pnpm
-- **UI Components**: shadcn/ui with Tailwind
-- **Testing**: Vitest + Testing Library
-- **Container**: Docker (Node.js + Nginx)
-
-### Development Tools
-- **Container Orchestration**: Docker Compose
-- **Code Quality**: EditorConfig, TypeScript strict mode
-- **Version Control**: Git with comprehensive .gitignore
-- **IDE**: VS Code with workspace settings
-
-## Quick Start with Docker
+## 🚀 Quick Start
 
 ### Prerequisites
-- Docker Desktop installed and running
-- Git (for cloning the repository)
+- Docker and Docker Compose
+- **Windows**: PowerShell (included) or Make (install via `choco install make`)
+- **Linux/macOS**: Make (usually pre-installed)
+- Optional: .NET 8 SDK and Node.js 18+ for local development
 
-### Run the Full Stack
+### For New Developers
+
+**Windows (PowerShell):**
+```powershell
+# Complete setup (installs dependencies and builds containers)
+.\build.ps1 setup
+
+# Start development environment
+.\build.ps1 dev
+```
+
+**Linux/macOS (Make):**
 ```bash
-# Clone the repository (if not already done)
-git clone <repository-url>
-cd Osrs-Projects
+# Complete setup (installs dependencies and builds containers)
+make setup
 
-# Build and start all services
-docker-compose up --build
-
-# Access the applications:
-# Frontend: http://localhost:3000
-# Backend API: http://localhost:8080
-# Swagger UI: http://localhost:8080/swagger
+# Start development environment
+make dev
 ```
 
-### Stop the Services
+That's it! Your backend will be at `http://localhost:8080` and frontend at `http://localhost:3000`.
+
+## 📋 Available Commands
+
+> **Note**: Use `.\build.ps1 [command]` on Windows or `make [command]` on Linux/macOS
+
+### Development
 ```bash
-docker-compose down
+# Windows                    # Linux/macOS
+.\build.ps1 dev             # make dev              # Start both services in development mode
+.\build.ps1 dev-backend     # make dev-backend      # Start only backend
+.\build.ps1 dev-frontend    # make dev-frontend     # Start only frontend  
+.\build.ps1 dev-local       # make dev-local        # Run both services locally (no Docker)
 ```
 
-## Development Setup
-
-### Prerequisites
-- .NET 8.0 SDK
-- Node.js 18+ and pnpm
-- Git
-
-### Backend Setup
+### Building
 ```bash
-# Navigate to backend directory
-cd BackEnd
-
-# Restore dependencies
-dotnet restore
-
-# Run the backend
-dotnet run
-```
-**API Endpoints:**
-- Base URL: `http://localhost:8080`
-- Weather Forecast: `GET /WeatherForecast`
-- Swagger UI: `http://localhost:8080/swagger`
-
-### Frontend Setup
-```bash
-# Navigate to frontend directory
-cd FrontEnd
-
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
-```
-**Access:** `http://localhost:3000`
-
-### Available Scripts
-```bash
-# Frontend commands
-pnpm dev          # Start development server
-pnpm build        # Build for production
-pnpm serve        # Preview production build
-pnpm test         # Run tests
-
-# Backend commands
-dotnet build      # Build the project
-dotnet run        # Run the application
-dotnet test       # Run tests (when added)
-```
-
-## Docker Architecture
-
-### Multi-Stage Builds
-- **Backend**: .NET SDK → ASP.NET Core Runtime
-- **Frontend**: Node.js → Nginx Alpine
-
-### Services
-- **backend**: ASP.NET Core API on ports 8080/8081
-- **frontend**: React app served by Nginx on port 3000
-- **Network**: Isolated bridge network for service communication
-
-### Container Optimization
-- Linux-based containers for smaller size
-- Multi-stage builds to reduce final image size
-- Proper .dockerignore files to exclude unnecessary files
-- Frozen lockfiles for reproducible builds
-
-## API Documentation
-
-### Current Endpoints
-
-#### WeatherForecast
-```http
-GET /WeatherForecast
-```
-
-**Response:**
-```json
-[
-  {
-    "date": "2025-09-19",
-    "temperatureC": 25,
-    "temperatureF": 77,
-    "summary": "Warm"
-  }
-]
-```
-
-### Swagger Documentation
-When running the backend, visit `/swagger` for interactive API documentation.
-
-## Development Workflow
-
-### Code Quality
-- **EditorConfig**: Consistent formatting across editors
-- **TypeScript**: Strict mode enabled
-- **Git Hooks**: Pre-commit checks (can be added)
-
-### Building for Production
-```bash
-# Build backend
-dotnet publish -c Release
-
-# Build frontend
-cd FrontEnd && pnpm build
-
-# Build all containers
-docker-compose build
+.\build.ps1 build           # make build            # Build both Docker images
+.\build.ps1 build-backend   # make build-backend    # Build only backend image
+.\build.ps1 build-frontend  # make build-frontend   # Build only frontend image
+.\build.ps1 build-local     # make build-local      # Build locally without Docker
 ```
 
 ### Testing
 ```bash
-# Frontend tests
-cd FrontEnd && pnpm test
-
-# Backend tests (when added)
-dotnet test
+.\build.ps1 test            # make test             # Run all tests
+.\build.ps1 test-backend    # make test-backend     # Run only backend tests
+.\build.ps1 test-frontend   # make test-frontend    # Run only frontend tests
 ```
 
-## Configuration
-
-### Environment Variables
-- `ASPNETCORE_ENVIRONMENT`: Development/Production
-- Custom settings in `appsettings.json`
-
-### Ports
-- Backend: 8080 (HTTP), 8081 (HTTPS)
-- Frontend: 3000 (development), 80 (production container)
-
-## Deployment
-
-### Docker Deployment
+### Docker Management
 ```bash
-# Build production images
-docker-compose build
-
-# Run in detached mode
-docker-compose up -d
-
-# Scale services if needed
-docker-compose up -d --scale backend=2
+.\build.ps1 up              # make up               # Start services in background
+.\build.ps1 down            # make down             # Stop all services
+.\build.ps1 restart         # make restart          # Restart all services
+.\build.ps1 logs            # make logs             # View logs from all services
+.\build.ps1 status          # make status           # Show service status
 ```
 
-### Production Considerations
-- Environment variables for configuration
-- HTTPS certificates
-- Database connections
-- Logging and monitoring
-- Health checks
+### Maintenance
+```bash
+.\build.ps1 clean           # make clean            # Clean up everything (Docker + build artifacts)
+.\build.ps1 clean-docker    # make clean-docker     # Clean up Docker containers and images only
+.\build.ps1 format          # make format           # Format code in both projects
+.\build.ps1 lint            # make lint             # Lint frontend code
+```
 
-## Contributing
+### Production
+```bash
+.\build.ps1 prod            # make prod             # Build and start in production mode
+# make deploy (Linux/macOS only) # Deploy to production (customize as needed)
+```
 
-1. **Setup**: Follow the development setup instructions
-2. **Code Style**: Follow EditorConfig and TypeScript standards
-3. **Testing**: Ensure all tests pass before submitting
-4. **Documentation**: Update README and API docs as needed
-5. **Commits**: Use clear, descriptive commit messages
+### Help
+```bash
+.\build.ps1 help            # make help             # Show all available commands
+.\build.ps1 info            # make info             # Display project information
+```
+
+## 🛠️ Development Workflow
+
+### Daily Development
+1. `make dev` - Start your development environment
+2. Make your changes
+3. `make test` - Run tests
+4. `make format` - Format your code
+5. Commit and push
 
 ### Adding New Features
-1. **Backend**: Add controllers in `BackEnd/Controllers/`
-2. **Frontend**: Add components in `FrontEnd/src/`
-3. **Rebuild**: Run `docker-compose up --build` to test changes
+1. Create feature branch
+2. `make dev-local` - For faster iteration during development
+3. `make test` - Ensure tests pass
+4. `make build` - Ensure Docker builds work
+5. Create pull request
 
-## Troubleshooting
+### Debugging
+- `make logs` - View all service logs
+- `make logs-backend` - View only backend logs
+- `make logs-frontend` - View only frontend logs
 
-### Common Issues
+## 🐳 Docker Structure
 
-**Docker Build Fails**
+### Backend (`BackEnd/Dockerfile`)
+- Multi-stage build for optimal image size
+- Uses .NET 8 runtime and SDK images
+- Exposes ports 8080 and 8081
+
+### Frontend (`FrontEnd/Dockerfile`)
+- Node.js build stage with pnpm
+- Nginx production stage for serving
+- Exposes port 80 (mapped to 3000 in docker-compose)
+
+### Benefits of This Structure
+- **Unified Interface**: Single `make` command for any task
+- **Environment Consistency**: Same commands work everywhere
+- **Optimized Builds**: Separate Dockerfiles allow per-service optimization
+- **Developer Friendly**: New team members need minimal setup knowledge
+- **CI/CD Ready**: Easy integration with automated pipelines
+
+## 🔧 Local Development (No Docker)
+
+If you prefer to run services locally:
+
 ```bash
-# Clear Docker cache
-docker system prune -a
+# Install dependencies
+make install
 
-# Rebuild without cache
-docker-compose build --no-cache
+# Terminal 1: Backend
+cd BackEnd
+dotnet run
+
+# Terminal 2: Frontend  
+cd FrontEnd
+pnpm dev
 ```
 
-**Port Conflicts**
-```bash
-# Check what's using ports
-netstat -ano | findstr :8080
-netstat -ano | findstr :3000
+## 📦 Production Deployment
 
-# Change ports in docker-compose.yml if needed
+The Makefile provides production-ready commands:
+
+```bash
+# Build production images
+make build
+
+# Start in production mode
+make prod
+
+# Or deploy (customize the deploy target in Makefile)
+make deploy
 ```
 
-**Permission Issues**
-```bash
-# On Windows, ensure Docker Desktop is running
-# On Linux/Mac, ensure Docker daemon is running
-```
+## 🤝 Contributing
 
-## License
+1. Run `make setup` for initial setup
+2. Use `make help` to see available commands
+3. Follow the development workflow above
+4. Ensure `make test` passes before submitting PRs
 
-[Add your license information here]
+## 📚 Tech Stack
 
----
+- **Backend**: .NET 8 Web API
+- **Frontend**: React + TypeScript + Vite + TailwindCSS
+- **Containerization**: Docker + Docker Compose
+- **Build Tool**: Make
+- **Package Manager**: pnpm (frontend), NuGet (.NET)
 
-**Built with ❤️ for Old School Runescape enthusiasts**
+## 🎯 Project Goals
+
+This Old School RuneScape project aims to provide tools and utilities for OSRS players. The architecture is designed to be:
+
+- **Scalable**: Easy to add new features and services
+- **Maintainable**: Clear separation of concerns
+- **Developer-friendly**: Simple setup and consistent workflow
+- **Production-ready**: Optimized builds and deployment processes
+
+## 🔜 Roadmap
+
+- [ ] Add database integration
+- [ ] Implement user authentication
+- [ ] Add OSRS API integration
+- [ ] Set up CI/CD pipeline
+- [ ] Add comprehensive testing
+- [ ] Performance monitoring and logging

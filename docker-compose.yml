@@ -2,12 +2,15 @@ services:
   backend:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: BackEnd/Dockerfile
     ports:
       - "8080:8080"
       - "8081:8081"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - SUPABASE_CONNECTION_STRING=${SUPABASE_CONNECTION_STRING}
+    volumes:
+      - ./BackEnd:/src:cached
     networks:
       - app-network
 
@@ -19,6 +22,8 @@ services:
       - "3000:80"
     depends_on:
       - backend
+    volumes:
+      - ./FrontEnd/src:/app/src:cached
     networks:
       - app-network
 
