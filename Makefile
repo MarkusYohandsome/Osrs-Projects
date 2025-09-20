@@ -51,9 +51,9 @@ build-local: ## Build projects locally without Docker
 # Testing Commands
 test: ## Run all tests
 	@echo "Running backend tests..."
-	dotnet test "Old School Runescape Project.csproj"
+	@dotnet test "Old School Runescape Project.csproj"
 	@echo "Running frontend tests..."
-	cd FrontEnd && pnpm run test
+	@cd FrontEnd && pnpm run test
 
 test-backend: ## Run only backend tests
 	dotnet test "Old School Runescape Project.csproj"
@@ -117,11 +117,11 @@ format: ## Format code in both projects
 	@echo "Formatting backend code..."
 	dotnet format "Old School Runescape Project.csproj"
 	@echo "Formatting frontend code..."
-	cd FrontEnd && pnpm run format || echo "No format script found in package.json"
+	@cd FrontEnd && pnpm run format || echo "No format script found in package.json"
 
 lint: ## Lint code in both projects
 	@echo "Linting frontend code..."
-	cd FrontEnd && pnpm run lint || echo "No lint script found in package.json"
+	@cd FrontEnd && pnpm run lint || echo "No lint script found in package.json"
 
 status: ## Show status of all services
 	docker-compose ps

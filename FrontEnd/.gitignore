@@ -69,3 +69,6 @@ temp/
 
 # Local development
 .local
+
+# Package manager lock files (keep pnpm)
+# pnpm-lock.yaml

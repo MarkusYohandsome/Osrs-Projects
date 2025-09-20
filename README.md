@@ -135,7 +135,7 @@ That's it! Your backend will be at `http://localhost:8080` and frontend at `http
 - Exposes ports 8080 and 8081
 
 ### Frontend (`FrontEnd/Dockerfile`)
-- Node.js build stage with pnpm
+- Node.js build stage with npm
 - Nginx production stage for serving
 - Exposes port 80 (mapped to 3000 in docker-compose)
 
@@ -160,7 +160,7 @@ dotnet run
 
 # Terminal 2: Frontend  
 cd FrontEnd
-pnpm dev
+pnpm run dev
 ```
 
 ## 📦 Production Deployment
